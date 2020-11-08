@@ -10,7 +10,7 @@ class CalendarsController < ApplicationController
   def create
     binding.pry
     Plan.create(plan_params)
-    redirect_to action: : plan, commit, index;
+    redirect_to action: index, notice: '予定を保存しました'
   end
 
   private
