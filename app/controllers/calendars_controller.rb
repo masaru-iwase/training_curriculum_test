@@ -8,7 +8,7 @@ class CalendarsController < ApplicationController
 
   # 予定の保存
   def create
-    binding.pry
+    #binding_pry
     Plan.create(plan_params)
     redirect_to action: index, notice: '予定を保存しました'
   end
@@ -36,7 +36,7 @@ class CalendarsController < ApplicationController
         today_plans.push(plan.plan) if plan.date == @todays_date + x
       end
 
-      days = { month: (@todays_date + x).month, date: (@todays_date+x).day, plans: today_plans, wday: @week_days}
+      days = { month: (@todays_date + x).month, date: (@todays_date + x).day, plans: today_plans, wday: wdays[(@todays_date + x).wday]}
       @week_days.push(days)
     end
 
