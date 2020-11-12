@@ -8,9 +8,8 @@ class CalendarsController < ApplicationController
 
   # 予定の保存
   def create
-    #binding_pry
     Plan.create(plan_params)
-    redirect_to action: index, notice: '予定を保存しました'
+    redirect_to action: :index
   end
 
   private
